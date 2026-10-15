@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lucky Draw Raffle</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="background-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <div class="container">
+    <header>
+      <h1>Lucky Draw</h1>
+      <p class="subtitle">Add participants &amp; prizes, then spin the wheel of fortune</p>
+    </header>
+
+    <main class="grid">
+      <!-- Participants Panel -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Participants</h2>
+          <span class="badge" id="participant-count">0</span>
+        </div>
+        <div class="input-row">
+          <input type="text" id="participant-input" placeholder="Enter a name..." maxlength="40" autocomplete="off">
+          <button type="button" id="add-participant" class="btn btn-primary" title="Add participant">+</button>
+        </div>
+        <p class="hint">Press Enter or click + to add. Paste multiple names separated by commas or new lines.</p>
+        <ul class="list" id="participant-list"></ul>
+        <button type="button" id="clear-participants" class="btn btn-ghost" disabled>Clear all</button>
+      </section>
+
+      <!-- Prizes Panel -->
+      <section class="card">
+        <div class="card-header">
+          <h2>Prizes</h2>
+          <span class="badge" id="prize-count">0</span>
+        </div>
+        <div class="input-row">
+          <input type="text" id="prize-input" placeholder="Enter a prize..." maxlength="50" autocomplete="off">
+          <button type="button" id="add-prize" class="btn btn-primary" title="Add prize">+</button>
+        </div>
+        <p class="hint">Each prize will be awarded to one random participant.</p>
+        <ul class="list" id="prize-list"></ul>
+        <button type="button" id="clear-prizes" class="btn btn-ghost" disabled>Clear all</button>
+      </section>
+    </main>
+
+    <!-- Draw Controls -->
+    <section class="draw-section">
+      <button type="button" id="draw-btn" class="btn btn-draw" disabled>
+        <span class="btn-text">Draw Winners</span>
+        <span class="spinner hidden" id="draw-spinner"></span>
+      </button>
+      <p class="draw-hint" id="draw-hint">Add at least one participant and one prize to start</p>
+    </section>
+
+    <!-- Results -->
+    <section class="card results-card hidden" id="results-section">
+      <div class="card-header">
+        <h2>Winners</h2>
+        <button type="button" id="reset-draw" class="btn btn-ghost">New Draw</button>
+      </div>
+      <div class="winners-grid" id="winners-list"></div>
+      <button type="button" id="copy-results" class="btn btn-secondary">Copy Results</button>
+    </section>
+  </div>
+
+  <footer>
+    <p>Made for fun · Pure HTML, CSS &amp; JS · No data leaves your browser</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
